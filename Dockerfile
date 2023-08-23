@@ -1,4 +1,4 @@
-FROM python:alpine
+FROM python:3.10-alpine
 
 LABEL maintainer="ph200" \
       org.label-schema.license="Apache-2.0" \
