@@ -1,4 +1,4 @@
-FROM python:3.10-alpine
+FROM python:alpine
 
 LABEL maintainer="ph200" \
       org.label-schema.license="Apache-2.0" \
@@ -10,6 +10,7 @@ RUN apk add --no-cache bash openssh ca-certificates jq curl perl git zip \
  && update-ca-certificates
 
 ENV PATH=/root/.local/bin:$PATH
+RUN pip install "cython<3.0.0" && pip install --no-build-isolation "pyyaml<6.0"
 RUN pip install awsebcli --quiet --no-cache-dir --upgrade --user
 
 WORKDIR /app
